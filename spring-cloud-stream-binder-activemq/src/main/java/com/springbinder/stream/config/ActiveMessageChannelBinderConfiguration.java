@@ -1,4 +1,4 @@
-package stream.config;
+package com.springbinder.stream.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration;
@@ -6,10 +6,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import properties.ActiveBinderConfigurationProperties;
-import properties.ActiveExtendedBindingProperties;
-import provisioning.ActiveProvisioner;
-import stream.ActiveMessageChannelBinder;
+import com.springbinder.properties.ActiveBinderConfigurationProperties;
+import com.springbinder.properties.ActiveExtendedBindingProperties;
+import com.springbinder.provisioning.ActiveProvisioner;
+import com.springbinder.stream.ActiveMessageChannelBinder;
 
 @Configuration
 @Import({ PropertyPlaceholderAutoConfiguration.class })

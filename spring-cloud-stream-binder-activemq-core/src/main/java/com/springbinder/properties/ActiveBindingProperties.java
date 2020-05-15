@@ -1,4 +1,4 @@
-package properties;
+package com.springbinder.properties;
 import org.springframework.cloud.stream.binder.BinderSpecificPropertiesProvider;
 
 public class ActiveBindingProperties implements BinderSpecificPropertiesProvider{

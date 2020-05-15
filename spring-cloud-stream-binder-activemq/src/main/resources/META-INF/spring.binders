@@ -1,2 +1,2 @@
 activemq:\
-stream.config.ActiveMessageChannelBinderConfiguration
+com.springbinder.stream.config.ActiveMessageChannelBinderConfiguration

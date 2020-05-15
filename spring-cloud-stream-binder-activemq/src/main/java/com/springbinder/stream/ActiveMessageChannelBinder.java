@@ -1,4 +1,4 @@
-package stream;
+package com.springbinder.stream;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.cloud.stream.binder.*;
@@ -9,14 +9,14 @@ import org.springframework.integration.jms.JmsSendingMessageHandler;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
-import mapping.ActiveMessageProducerMapper;
+import com.springbinder.mapping.ActiveMessageProducerMapper;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
 import javax.jms.*;
 import java.util.Map;
-import properties.*;
-import provisioning.ActiveProvisioner;
+import com.springbinder.properties.*;
+import com.springbinder.provisioning.ActiveProvisioner;
 
 
 public class ActiveMessageChannelBinder extends AbstractMessageChannelBinder<ExtendedConsumerProperties<ActiveConsumerProperties>,

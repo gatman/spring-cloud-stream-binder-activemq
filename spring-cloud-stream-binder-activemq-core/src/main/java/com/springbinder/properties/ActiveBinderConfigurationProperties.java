@@ -1,4 +1,4 @@
-package properties;
+package com.springbinder.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

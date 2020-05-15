@@ -1,6 +1,7 @@
-package properties;
+package com.springbinder.properties;
 
-public class ActiveConsumerProperties {
+public class ActiveProducerProperties {
+
     private String destination;
     private Boolean transaction=false;
     private String type;

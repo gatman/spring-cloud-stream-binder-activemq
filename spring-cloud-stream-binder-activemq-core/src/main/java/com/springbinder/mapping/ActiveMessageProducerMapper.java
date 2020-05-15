@@ -1,4 +1,4 @@
-package mapping;
+package com.springbinder.mapping;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.autoconfigure.jms.JmsProperties.AcknowledgeMode;

@@ -1,4 +1,4 @@
-package provisioning;
+package com.springbinder.provisioning;
 
 import org.springframework.cloud.stream.binder.ExtendedConsumerProperties;
 import org.springframework.cloud.stream.binder.ExtendedProducerProperties;
@@ -7,8 +7,8 @@ import org.springframework.cloud.stream.provisioning.ProducerDestination;
 import org.springframework.cloud.stream.provisioning.ProvisioningException;
 import org.springframework.cloud.stream.provisioning.ProvisioningProvider;
 import org.springframework.util.StringUtils;
-import properties.ActiveConsumerProperties;
-import properties.ActiveProducerProperties;
+import com.springbinder.properties.ActiveConsumerProperties;
+import com.springbinder.properties.ActiveProducerProperties;
 
 
 public class ActiveProvisioner implements
