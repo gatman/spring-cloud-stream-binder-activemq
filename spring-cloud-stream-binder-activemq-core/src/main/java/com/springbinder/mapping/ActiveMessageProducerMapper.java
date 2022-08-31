@@ -1,5 +1,6 @@
 package com.springbinder.mapping;
 
+import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.autoconfigure.jms.JmsProperties.AcknowledgeMode;
 import org.springframework.context.Lifecycle;
@@ -11,11 +12,15 @@ import org.springframework.jms.listener.DefaultMessageListenerContainer;
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.SimpleMessageConverter;
 import org.springframework.messaging.MessageChannel;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
 import javax.jms.Message;
 import javax.jms.MessageListener;
-
 
 public class ActiveMessageProducerMapper implements MessageProducer, MessageListener, InitializingBean, Lifecycle {
 
@@ -72,12 +77,10 @@ public class ActiveMessageProducerMapper implements MessageProducer, MessageList
         return container.isRunning();
     }
 
-
     @Override
     public void setOutputChannel(MessageChannel outputChannel) {
         this.outputChannel = outputChannel;
     }
-
 
     @Override
     public MessageChannel getOutputChannel() {
@@ -88,7 +91,16 @@ public class ActiveMessageProducerMapper implements MessageProducer, MessageList
     public void onMessage(Message message) {
         try {
             Object payload = this.messageConverter.fromMessage(message);
-            org.springframework.messaging.Message<?> requestMessage = messageBuilderFactory.withPayload(payload).build();
+            // List<String> propNAmes =
+            // Collections.list(message.getPropertyNames());
+            org.springframework.messaging.Message<?> requestMessage = messageBuilderFactory.withPayload(payload)
+                                                                                           .setErrorChannelName(
+                                                                                                   message.getStringProperty(
+                                                                                                           "errorChannel"))
+                                                                                           .setReplyChannelName(
+                                                                                                   message.getStringProperty(
+                                                                                                           "replyChannel"))
+                                                                                           .build();
             outputChannel.send(requestMessage);
         } catch (Exception e) {
             throw new RuntimeException(e);
